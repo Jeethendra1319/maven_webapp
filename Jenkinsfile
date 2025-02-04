@@ -20,14 +20,6 @@ pipeline{
                 sh 'mvn test'
             }
         }
-       stage('deploy'){
-            steps{
-                sshagent(['Tomcat-demo']) {
-                    sh "scp -o StrictHostKeyChecking=no target/demo.war ubuntu@54.90.214.50:/var/lib/tomcat9/webapps"
-
-                }
-            }
-        }
        
     }
 }
