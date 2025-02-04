@@ -8,7 +8,13 @@ pipeline{
             steps{
                 git branch: 'main', changelog: false, poll: false, url: 'https://github.com/nimbuswiztech/maven_webapp.git'
             }
-         }        
+         } 
+
+        stage('Run unit test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
        stage('Build'){
             steps{
                 sh 'mvn clean package'
