@@ -14,6 +14,12 @@ pipeline{
                 sh 'mvn clean package'
             }
         }
+
+        stage('Run unit test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
        stage('deploy'){
             steps{
                 sshagent(['Tomcat-demo']) {
